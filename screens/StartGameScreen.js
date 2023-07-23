@@ -2,6 +2,7 @@ import { TextInput, View, StyleSheet } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 
 function StartGameScreen() {
+console.log('test')
   return (
     <View style={sytles.inputContainter}>
       <TextInput
@@ -11,8 +12,14 @@ function StartGameScreen() {
         autoCapitalize="none"
         autoCorrect={false}
       />
-      <PrimaryButton>Reset</PrimaryButton>
-      <PrimaryButton>Confirm</PrimaryButton>
+      <View style={sytles.buttonsContainer}>
+        <View style={sytles.buttonContainer}>
+          <PrimaryButton>Reset</PrimaryButton>
+        </View>
+        <View style={sytles.buttonContainer}>
+          <PrimaryButton>Confirm</PrimaryButton>
+        </View>
+      </View>
     </View>
   );
 }
@@ -21,6 +28,8 @@ export default StartGameScreen;
 
 const sytles = StyleSheet.create({
   inputContainter: {
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 100,
     marginHorizontal: 24,
     padding: 16,
@@ -43,4 +52,10 @@ const sytles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+  buttonsContainer: {
+    flexDirection: "row",
+  },
+  buttonContainer: {
+    flex: 1
+  }
 });
