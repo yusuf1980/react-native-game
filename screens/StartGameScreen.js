@@ -2,7 +2,7 @@ import { TextInput, View, StyleSheet } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 
 function StartGameScreen() {
-console.log('test')
+
   return (
     <View style={sytles.inputContainter}>
       <TextInput
