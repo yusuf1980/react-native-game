@@ -14,20 +14,22 @@ function generateRandomBetween(min, max, exclude) {
   }
 }
 
-function GameScreen({ userNumber }) {
-  const initialGuess = generateRandomBetween(1, 100, userNumber);
-  const [currentGuess, setCurrentGuess] = useState(initialGuess);
+let minBoundary = 1;
+let maxBoundary = 100;
 
-  let minBoundary = 1;
-  let maxBoundary = 100;
+function GameScreen({ userNumber }) {
+  const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber);
+  const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
   function nextGuessHandler(direction) {
     if (
       (direction === "lower" && currentGuess < userNumber) ||
       (direction === "greater" && currentGuess > userNumber)
     ) {
-        Alert.alert("Don't lie", "You know that is wrong...", [{text: 'Sorry', style: 'Cancel'}])
-        return
+      Alert.alert("Don't lie", "You know that is wrong...", [
+        { text: "Sorry", style: "Cancel" },
+      ]);
+      return;
     }
 
     if (direction === "lower") {
